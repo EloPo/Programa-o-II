@@ -2,14 +2,15 @@ package pessoa;
 
 public class App {
 	public static void main(String[] args) {
-		Júridica j1 = new Júridica("Arthur", "123", 12.01);
-		Júridica j2 = new Júridica("Hise", "123", 13.1);
-		
+		Juridica arthur = new Juridica("Arthur", "123", 12.01);
+		Juridica carlos = new Juridica("Carlos", "123", 13.1);
+		Fisica arthur = new Fisica("Arthur", "123", 12.01);
+		Fisica carlos = new Fisica("Carlos", "123", 13.1);
 
-		j1.adicionarSócio(j1,10.0);
-		j1.adicionarSócio(j2,11.0);
+		arthur.adicionarSocio(arthur,10.0);
+		carlos.adicionarSocio(carlos,11.0);
 		
-		j1.listarSocios();
+		arthur.listarSocios();
 	
 	}
 }
