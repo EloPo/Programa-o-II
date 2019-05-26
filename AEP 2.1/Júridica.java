@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-public class Júridica extends Pessoa {
+public class Juridica extends Pessoa {
 	private String cnpj;
 	private double capitalSocial;
 	private HashSet<CotaSociedade> cotasSociedade;
@@ -37,12 +37,12 @@ public class Júridica extends Pessoa {
 		return capitalSocial;
 	}
 
-	public void adicionarSócio(Pessoa sócio, double percentualParticipacão) {
+	public void adicionarSocio(Pessoa socio, double percentualParticipacao) {
 		CotaSociedade cota = new CotaSociedade();
 		for (CotaSociedade cotas : cotasSociedade) {
-			if (cotas.equals(sócio) && percentualParticipacão > 0 && percentualParticipacão <= 100) {
-				cota.sócio = sócio;
-				cota.percentualDeParticipação = percentualParticipacão;
+			if (cotas.equals(socio) && percentualParticipacao > 0 && percentualParticipacao <= 100) {
+				cota.socio = socio;
+				cota.percentualDeParticipacao = percentualParticipacao;
 				cotasSociedade.add(cota);
 			} else {
 				throw new RuntimeException("Proibido ser sócio de sí mesmo");
@@ -50,21 +50,21 @@ public class Júridica extends Pessoa {
 		}
 	}
 
-	public void removerSócio(Pessoa sócio) {
+	public void removerSocio(Pessoa socio) {
 		for (CotaSociedade cotas : cotasSociedade) {
-			if (cotas.sócio == sócio) {
+			if (cotas.socio == socio) {
 				cotasSociedade.remove(cotas);
 			}
 		}
 	}
 
 	private class CotaSociedade {
-		private Pessoa sócio;
-		private double percentualDeParticipação;
+		private Pessoa socio;
+		private double percentualDeParticipacao;
 
 		@Override
 		public boolean equals(Object obj) {
-			if(((Pessoa) obj).getNome().equals(this.sócio.getNome())) {
+			if(((Pessoa) obj).getNome().equals(this.socio.getNome())) {
 				return false;
 			}
 			return true;
@@ -73,8 +73,8 @@ public class Júridica extends Pessoa {
 
 	public void listarSocios() {
 		for (CotaSociedade auxiliar : cotasSociedade) {
-			System.out.println("Nome: " + auxiliar.sócio.getNome());
-			System.out.println("Percentual: " + auxiliar.percentualDeParticipação);
+			System.out.println("Nome: " + auxiliar.socio.getNome());
+			System.out.println("Percentual: " + auxiliar.percentualDeParticipacao);
 		}
 	}
 
